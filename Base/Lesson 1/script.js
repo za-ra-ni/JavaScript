@@ -23,6 +23,7 @@ console.log (name);
 var customArray = [3,14,15];
 console.log (customArray);
 customArray = [0,0,0];
+// тут просто нужно было прировнять массив к 0
 console.log (customArray);
 
 //Task 5
@@ -37,6 +38,8 @@ complex[0] = "My name is:";
 complex[1] = 7;
 complex[2] = null;
 complex[3] = `${info}`;
+// это будет не правильно оно тебе из массива info создаст строку а нам тут нужна ссылка на объект
+// complex[3] = info;
 console.log (complex[2]);
 
 //Task 7
