@@ -1,0 +1,19 @@
+//Task 1
+var count = 1;
+while (count <=50) {
+    console.log(count);
+    count +=1;
+};
+
+//Task 2
+for (var arr = [1,2,3,4,5], s = 0; s < arr.length; s++) {
+    console.log(arr[s]);
+};
+
+//Task 3
+
+//Task 4
+var obj = {Minsk: 'Belarus', Moscow: 'Russia', Kyiv: 'Ukraine'};
+for (var b in obj) {
+    console.log(`${b} is ${obj[b]}`);
+};
