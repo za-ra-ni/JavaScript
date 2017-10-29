@@ -1,0 +1,128 @@
+// Task 1
+var a = +prompt("Enter number!");
+a === 0 ? console.log("True!"): console.log("False!");
+
+// Task 2
+var a = prompt("Enter 'test'");
+a === "test" ? console.log("True!"): console.log("False!");
+
+// Task 3
+var test = confirm("Is test true?");
+if (test == true) {
+    console.log("True!");
+} else {
+    console.log("False!");
+};
+
+OR
+
+test == true ? console.log("True!"): console.log("False!");
+
+//Task 4
+var
+    a = +prompt("Enter number a"),
+    b = +prompt("Enter number b");
+
+var result = a + b;
+if (result > 5) {
+    result = 5;
+} else {
+    result *= 10;
+};
+console.log(result);
+
+//Task 5
+var a = +prompt("Enter number!");
+if (a == 0 || a == 2) {
+    console.log(a /= 10);
+} else {
+    console.log(a += 7);
+};
+
+//Task 6
+var
+    a = +prompt("Enter number a"),
+    b = +prompt("Enter number b");
+a <= 1 && b >=3 ? console.log(a + b) : console.log('False!');
+
+//Task 7
+var
+    a = +prompt("Enter number a"),
+    b = +prompt("Enter number b");
+(a > 2 && a < 11) || (b >= 6 && b < 14) ? console.log(a += 2) : console.log(a += 5);
+
+//Task 8
+var num = +prompt("Enter number!");
+var result;
+switch (num) {
+    case 1: console.log(result = 'Winter');
+    break;
+    case 2: console.log(result = 'Spring');
+    break;
+    case 3: console.log(result = 'Summer');
+    break;
+    case 4: console.log(result = 'Fall');
+    break;
+    default: alert('Number should be between 1 and 4');
+    break;
+};
+
+//Task 9
+var lang = prompt("What is you language: ru, en or de?");
+var arr = [];
+switch (lang) {
+    case "ru": console.log(arr = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]);
+        break;
+    case "en": console.log(arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]);
+        break;
+    case "de": console.log(arr = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]);
+        break;
+    default: alert('That language is not supported');
+        break;
+};
+
+//Task 9
+var lang = prompt("What is you language: ru, en or de?");
+var arr = [];
+if (lang == "ru") {
+    console.log(arr = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]);
+} else if (lang == "en") {
+    console.log(arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]);
+} else if (lang == "de") {
+    console.log(arr = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]);
+} else {
+    alert('That language is not supported');
+};
+
+OR
+
+var lang = prompt("What is you language: ru, en or de?");
+var arr = [];
+switch (lang) {
+    case "ru": console.log(arr = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"]);
+        break;
+    case "en": console.log(arr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]);
+        break;
+    case "de": console.log(arr = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]);
+        break;
+    default: alert('That language is not supported');
+        break;
+};
+
+OR
+var lang = prompt("What is you language: ru, en or de?");
+var arr = [];
+var weekdays = [
+    ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"],
+    ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+];
+if (lang == "ru") {
+    console.log(arr = weekdays[0]);
+} else if (lang == "en") {
+    console.log(arr = weekdays[1]);
+} else if (lang == "de") {
+    console.log(arr = weekdays[2]);
+} else {
+    alert('That language is not supported');
+};
