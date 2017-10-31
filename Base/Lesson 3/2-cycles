@@ -11,9 +11,47 @@ for (var arr = [1,2,3,4,5], s = 0; s < arr.length; s++) {
 };
 
 //Task 3
+var arr1 = [2,3,4,5];
+var result = 1;
+for (var a = 0; a < arr1.length; a++) {
+    result *= arr1[a];
+};
+console.log(result);
 
 //Task 4
 var obj = {Minsk: 'Belarus', Moscow: 'Russia', Kyiv: 'Ukraine'};
 for (var b in obj) {
     console.log(`${b} is ${obj[b]}`);
 };
+
+//Task 5
+var n = 1000;
+var num = 0;
+while(n >= 50) {
+    n /= 2;
+    num++;
+};
+console.log(num);
+console.log(n);
+
+//Task 6
+var arr = [2,5,9,15,0,4];
+for (var a = 0; a < arr.length; a++) {
+    if (arr[a] > 3 && arr[a] < 10) {
+        console.log(arr[a]);
+    };
+};
+
+//Task 7
+var arrmonth = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+var date = new Date();
+var month;
+for (month = 0; month < arrmonth.length; month++) {
+    console.log(arrmonth[month]);
+};
+
+Как сделать болдом - не нашла, метод bold почему-то не сработал. Если бы работал, было бы так вот:
+внутрь цикла вложила бы 
+if (month == date.getMonth) {
+    bold(month);
+   };
