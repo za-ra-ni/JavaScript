@@ -6,6 +6,19 @@ for (a = 0; a <= 15; a++) {
 //Task 2
 for (a = 1; a <= 100; a++) {
     console.log(a);
+// you can create a variables that will take a statements 
+/* 
+    var div3 = a % 3 == 0 ;
+    var div5 = a % 5 == 0 ;
+    
+    if (div3 && div5) {
+        console.log("FizzBuzz");
+    } else if (div3) {
+        console.log("Fizz");
+    } else if (div5) {
+        console.log("Buzz");
+    };
+*/
     if (a % 3 == 0 && a % 5 == 0) {
         console.log("FizzBuzz");
     } else if (a % 3 == 0) {
@@ -28,6 +41,13 @@ for (var c = a; c >= 0; c--) {
 //Task 4
 var result = 0;
 var a = 0;
+// в цикле for у нас в первой части идет инициализация а проверка у нас идет во второй части то есть это нужно мсодифицировать:
+
+/*
+for (var a = 0, result = 0; a % 3 == 0 && a % 5 == 0 && a <=1000; a++) {
+    result += a;
+};
+*/
 for (a % 3 == 0, a % 5 == 0; a <=1000; a++) {
     result += a;
 };
@@ -35,6 +55,9 @@ console.log(result);
 
 //Task 5
 for (a = 10; a <= 90; a++) {
+// здесь тоже можно было бы делать проверку прямо в условии
+// for (a = 10; a % 3 == 0 && a % 5 == 0 && a <= 90; a++) {
+
     if (a % 3 == 0 && a % 5 == 0) {
         console.log(a);
     };
@@ -42,6 +65,7 @@ for (a = 10; a <= 90; a++) {
 
 //Task 6
 for (a = 70; a >= 11; a--) {
+// здесь тоже можно было бы делать проверку прямо в условии
     if (a % 2 !== 0) {
         console.log(a);
     };
@@ -49,6 +73,7 @@ for (a = 70; a >= 11; a--) {
 
 //Task 7
 for (a = 78; a >= 13; a--) {
+// здесь тоже можно было бы делать проверку прямо в условии
     if (a % 2 == 0 && a % 3 == 0) {
         console.log(a);
     };
