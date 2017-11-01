@@ -55,3 +55,6 @@ for (month = 0; month < arrmonth.length; month++) {
 if (month == date.getMonth) {
     bold(month);
    };
+   
+ // там есть методы как выводить в консоль жирным шрифтом
+ // console.log('%c ' + month, 'font-style: bold;');
