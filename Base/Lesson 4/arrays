@@ -1,0 +1,51 @@
+//Task 1
+var arr = ["у", "м", "а", "р", " ", "а", "л", "ы", "м", 5, " ", "а", "м", "а", "М", 1];
+var str = arr.reverse().join("").replace(1,"").replace(5,"");
+console.log(str);
+
+//Task 2
+function isPal(string) {
+    var rev = string.split("").reverse().join("");
+    rev == string ? console.log(true) : console.log(false);
+};
+
+//Task 3
+var arr = ['воз', 'киборг', 'корсет', 'ЗОВ', 'гробик', 'костер', 'сектор'];
+for
+console.log( anClean(arr) );
+
+//Task 4
+var arr = ['rrrA', 'toboR', 'ekiL', 'dooG', 'esoR'];
+var arrrev = arr.join(" ").split("").reverse().join("").split(" ");
+console.log(arrrev);
+
+//Task 5
+var result = 0;
+for (a = 0; a <= 100; a++) {
+    result += a;
+};
+console.log(result);
+
+var result = 0;
+for (a = 0; a <= 100; a++) {
+    if (a % 2 == 0) {
+        result += a;
+    };
+};
+console.log(result);
+
+//Task 6
+function callMe(x, y, z) {
+    var result = x + y + z;
+    if (typeof(x) !== "number" || typeof(y) !== "number" || typeof(y) !== "number") {
+        console.error("Please enter three numbers!");
+        return null;
+    };
+    return result;
+};
+callMe(1,2,3);
+
+//Task 7
+Доделать, сортировку не учила ещё
+
+//Task 8
