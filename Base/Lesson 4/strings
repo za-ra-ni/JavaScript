@@ -1,0 +1,79 @@
+//Task 1
+var str = 'aaa@bbb@ccc';
+var strNew = str.replace(/@/g, "!")
+console.log(strNew);
+
+//Task 2
+var str2 = 'aaa bbb ccc';
+var srt2New = str2.substr(4,3);
+console.log(srt2New);
+//OR
+var srt2New = str2.substring(4,7);
+console.log(srt2New);
+//OR
+var srt2New = str2.slice(4,7);
+console.log(srt2New);
+
+// Task 3
+var date = '2025-12-31';
+var dateSlash = date.split("-").reverse().join("/");
+console.log(dateSlash);
+
+//Task 4
+var str4 = "js";
+var str4UC = str4.toUpperCase();
+console.log(str4UC);
+
+//Task 5
+var str5 = 'я учу javascript!';
+var str5L = str5.length;
+console.log(str5L);
+
+//Task 6
+var str6 = "My JS could be better";
+var n = 11;
+if (str6.length >= n) {
+    var result = str6.slice(0, n)+"...";
+} else {
+    result = str6;
+};
+console.log(result);
+
+//Task 7
+var str7 = 'я учу javascript!';
+var str7arr = str7.split(" ");
+console.log(str7arr);
+
+//Task 8
+var arr8 = ['я', 'учу', 'javascript', '!'];
+var arr8str = arr8.join("+");
+console.log(arr8str);
+
+//Task 9
+var str9 = 'я учу javascript!';
+var str9UC = str9.replace(str9.charAt(0), str9.charAt(0).toUpperCase());
+console.log(str9UC);
+
+//Task 10
+var str10 = 'я учу javascript!';
+var str10arr = str10.split(" ");
+for (var i = 0; i < str10arr.length; i++) {
+    str10arr[i] = str10arr[i].replace(str10arr[i].charAt(0), str10arr[i].charAt(0).toUpperCase());
+    };
+var str10UC = str10arr.join(" ");
+console.log(str10UC);
+
+//Task 11
+function underscoreToUC(str11) {
+    var str11arr = str11.split("_");
+    for (var i = 0; i < str11arr.length; i++) {
+        str11arr[i] = str11arr[i].replace(str11arr[i].charAt(0), str11arr[i].charAt(0).toUpperCase());
+    };
+    var str11UC = str11arr.join("");
+    return str11UC;
+};
+console.log(underscoreToUC('var_test_text'));
+
+//Task 12
+
+//Task 13
