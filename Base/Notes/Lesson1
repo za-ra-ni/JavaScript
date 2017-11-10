@@ -1,0 +1,45 @@
+console.log ("Chrome");
+
+// comment = Ctrl + /; huge batch = Ctrl + Shift + /;
+/* comment */
+
+var name = "Zaza";
+var age = 28;
+age = 30;
+var str1 = "blah blah";
+var template = `blah blah ${age}`;
+var logic = true;
+logic = false;
+var nothing = null;
+
+var x;
+
+var str3 = `My name is ${name}`
+var num = 88;
+var y = false;
+var template = `${str3}, i am ${age} years old, and my answer is ${y}`
+
+var person = {
+    name: "Zloridla",
+    "age-now": 28,
+};
+
+var man = {};
+man.name = "Validla";
+man[age] = 30;
+
+console.log("name" in man);
+
+
+var array = [0, 1, 2];
+var arr2 = [ "name", 100, null];
+
+var arr1 = [1,2,3,4,5]
+
+var arr0 = [];
+
+arr0[1000] = 9;
+
+delete array[2];
+
+delete spouse["30"];
