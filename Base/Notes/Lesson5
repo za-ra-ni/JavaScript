@@ -1,0 +1,125 @@
+// !!! полезно добавлять проверки соблюдения условий в свой код, поскольку правило - мы юзерам не доверяем и проверяем то, что они вводят
+
+
+//контекст выполнения, ключевое слово THIS
+//в глобальном контексте, this ссылается на глобальный объект вне зависимости от использзования в строгом или нестрогом режиме
+//контекст объекта - если в объекте, то на значение объекта, по отношению к которому вызван метод
+//оно надо, чтобы выяснить, в каком контексте мы работаем, и чтобы не дублировать код внутри разных контекстов - глобального и объектов
+
+//метод - это свойство объекта, которое является функцией
+
+// function getName() {
+//     return this.name;
+// };
+
+// getName(); // window.name => undefined
+//
+// var obj = {
+//     name: "Foo",
+//     getName: getName,
+// };
+//
+// var obj2 = {
+//     name: "Foo",
+// getName: getName,
+// };
+// obj.getName(); //"Foo"
+// obj2.getName(); //"Foo2"
+
+//вызов фукнции внутри метода объекта не меняет контекста, а вот присвоение методу объекта - да, она начинает работать внутри этого объекта
+
+// function createUser(){
+//     var name = prompt("Enter your name");
+//     return this.name = name;
+// };
+// var personsList = [{age: 50}, {age: 40}, {age: 60}];
+// for (var i = 0; i <= 2; i++){
+//     personsList[i].name = createUser;
+//     personsList[i].name();
+// };
+// console.log(personsList);
+
+//scope = область видимости
+// function double(x) {
+//     return x * 2;
+// };
+// function doubleTriple(x) {
+//     return double(x) * 3;
+// };
+
+//ЗАМЫКАНИЕ
+
+// function doubleTriple(x) {
+//     var count = 0;
+//
+//     return function(x) {
+//         count++;
+//         return x * 2 * 3;
+//     };
+// };
+//
+// var countdoubleTriple = doubleTriple(); //вызывает функцию внутри той, и считает, сколько раз она вызывалась
+
+
+function isEven(number, successCallback) {
+    if (number % 2 == 0) {
+        if (typeof successCallback === "function") {
+            successCallback();
+        }
+    }
+};
+isEven(6, function(){
+    alert("The number is even");
+});
+isEven(34, function(){
+    alert("34 is even");
+});
+
+function isOdd(number, Success, Fail) {
+    if (number % 2 !== 0) {
+        Success();
+    } else {
+        Fail();
+    };
+};
+
+isOdd(35, function(){alert("Yep, that's odd");}, function(){alert("Nopey");});
+
+isOdd(36, function(){alert("Yes, it is");}, function(){alert("Nope, is not");});
+
+//callbacks выполняются в отдельном потоке (асинхронно), как и запросы на сервер, в то время, как остальной код выполняется синхронно, сверху вниз, в порядке написания
+//callbacks - вызов функции после определённых операций
+
+
+
+//                        DOM-дерево
+// DOM - объектная модель документа (смотри презентацию) для работы с содержимым html и xml файлов
+//window.document = Document Object Model
+//что мы можем с ним делать - менять свойства css и прочее, к примеру, стили и так далее (из консоли)
+//document.body ссылается на тег <body>, и мы можем их менять, но только онлайн и до перезагрузки страницы
+
+//разобраться в структуре дерева
+
+//два типа узлов (nodes) - узлы-элементы или текстовые узлы (+ отдельно комментарии) (+ сам документ - вход в документ)
+//предок (выше на два и более) => родитель (на один уровень выше) => ... (элемент) => дочерний элемент (на один уровень ниже) => потомок (ниже на два и более)
+//есть ещё соседние элементы (на одном уровне)
+//родительские элементы текстом или комментарием быть не могут
+
+//когда элемент в фокусе, он доступен по запросу $0
+//навигация по элементам
+//parentNode - $0.parentNode
+//childNodes берёт и тексты тоже
+//previousSibling, nextSibling
+//если какого-то элемента не существует, то он = null (так можно проверять наличие элементов)
+//если нужны только элементы, добавляем ко всем Element (кроме childNodes - тут children, firstElementChild, lastElementChild) - parentElement, previousElementSibling
+//children возвращает псевдомассив - можно использовать только длину и какой-то элемент по индексу
+
+//у каждого узла есть свой тип, его можно определить nodeType, и значения такие: элемент = 1, текст = 3, комментарий = 8
+
+for (var i = 0; i < document.children.length; i++) {
+    console.log(document.children[i]);
+    if (document.children[i].nodeType === 8) {
+        alert("Is a comment");
+    };
+};
+//можно через точку миллион навызывать по цепочке
