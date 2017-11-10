@@ -1,0 +1,107 @@
+//Поиск document.getElementById() - для всего документа, искать всегда по строке
+
+// getElementById("result");
+
+//getElementsByTagName() - по имени тега html, возвращает псевдомассив (даже если с одним элементом)
+
+// getElementsByTagName("body");
+
+//getElementsByClassName - искать по классу (или классам, через пробел) в html
+
+//!!!если с css-селекторами не знакомы, то познакомьтесь
+
+//querySelector() - ищет по css-селекторам (ШТА?), возвращает первый элемент, который нашёл
+
+//querySelectorAll() - возвращает коллекцию элементов
+
+//все, кроме querySelector и querySelectorAll, заметят изменения
+
+//изменять содержимое элементов:
+//innerHTML - выведет содержимое элемента, если перезапишем (через = ...) - перезапишем значение элемента, либо можно записать это значение в переменную
+//сюда можем записать даже элементы DOM-дерева ("<div>Hello Zloridla</div>")
+
+// var name = prompt("Enter your name");
+
+// document.body.innerHTML = `Hello, ${name}!`
+
+//innerText - записывает чисто текст
+
+//createElement() - создать новый элемент - передаём в него название тега, который хотим создать ("h1"), но не записать элемент в DOM-дерево. мы можем сохранить этот виртуальный элемент в переменную
+//у него нет поиска по дереву, но есть метод innerHTML и innerText, и мы можем записать в него значение
+
+//и теперь этот элемент можно добавить в дерево
+//appendChild() - добавить дочерний элемент к любому элементу, кроме текстового узла
+
+// var numberOfElements = prompt("How many elements you'd like to add to this page?");
+// for (i = 0; i <= numberOfElements; i++) {
+//     var r = document.createElement("div");
+//     document.body.appendChild(r);
+//     r.innerText = 'Another element';
+// };
+
+//любое добавление элемента в дерево через джаваскрипт - очень трудоёмкое и трудозатратное (потому что перерендеривает дом), поэтому нам надо делать это эффективно
+//то есть создали что-то, добавляете ему свойства, правите, меняете, и только потом один раз добавляете в дом, чтобы он перерендеривался
+
+//insertBefore() - принимает два аргумента - какой узел вставить, и перед каким узлом его вставить (можно искать с помощью querySelector)
+
+//remove() - удалить какой-то узел, опять же, можно искать с помощью querySelector
+
+//removeChild() - вызывать относительно родителя
+
+//replaceChild() - замена узлов, тоже относительно родителя. передавать два элемента - что меняем и на что меняем
+
+//создавать дубликаты (клоны) существующих элементов - cloneNode()
+
+//var h1clone = document.querySelector("h1").cloneNode() - копирует только сам элемент, cloneNode(true) - копирует элемент с содержимым
+
+var numberOfElements = prompt("How many elements you'd like to add to this page?");
+var r = document.createElement("div");
+for (i = 0; i <= numberOfElements; i++) {
+    document.body.appendChild(r.cloneNode(true));
+    r.innerText = 'Another element ' + i;
+};
+
+//у каждого элемента есть атрибуты, для работы с ними есть специальные методы
+//elem.hasAttribute() - проверяет, есть ли у элемента такой-то атрибут. передать название атрибута. возвращает true/false
+//elem.getAttribute() - узнать значение атрибута
+//elem.setAttribute() - изменить или установить атрибут. передаём два агрумента - название атрибута и его значение
+//elem.removeAttribute() - удалить значение атрибута
+
+//document.querySelector("input").value
+//document.querySelector("input[type = checkbox").checked - for checkboxes and radiobuttons
+//document.querySelector("select").value (is the option that is selected now, default option is the first one)
+
+//                                              EVENTS IN JS
+//события - действия пользователя
+//тип события - строка, которая определяет тип события ("mousemove", "keydown", "click")
+//цель (target) события - элемент, на котором событие произошло (body как максимум)
+//функция - обработчик события - что происходит в ответ на событие; асинхронные - не сразу выполняются при написании, а в ответ на событие
+
+//можно добавить событие как атрибут для элемента
+// var h2 = document.querySelector("h2");
+// h2.onclick = function() {
+//     alert("Stop clicking!");
+// }
+
+// можно добавить в html, можно в скрипт-документ
+//а если мы хотим несколько обработчиков на одно событие, то тогда можно использовать методы
+
+//addEventListener() - три аргумента - тип события; callback - обработчик события
+
+// h2.addEventListener("click", function() {
+//     ...
+// });
+
+var button = document.querySelector("button");
+button.addEventListener("click", function() {
+    console.log("Button is clicked on");
+    var newdiv = document.createElement("div");
+    newdiv.innerText = "This is a totally new one";
+    document.body.appendChild(newdiv);
+});
+
+//removeEventListener() - но надо передавать ту же самую функцию, что и при создании (для этого лучше создавать внешнюю функцию)
+
+//можно одну фукнцию с набором реакций, а потом функцию посылать в аргумент обработчику (причём в функцию можно запихать распознавание события)
+
+//можно через цикл и querySelectorAll прогнать по всем кнопкам, например
