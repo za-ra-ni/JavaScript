@@ -66,7 +66,7 @@ console.log(str10UC);
 //Task 11
 function underscoreToUC(str11) {
     var str11arr = str11.split("_");
-    for (var i = 0; i < str11arr.length; i++) {
+    for (var i = 1; i < str11arr.length; i++) {
         str11arr[i] = str11arr[i].replace(str11arr[i].charAt(0), str11arr[i].charAt(0).toUpperCase());
     };
     var str11UC = str11arr.join("");
