@@ -1,0 +1,116 @@
+var str = 0;
+var strnew = 0;
+var num = str;
+delete str; // num will still be 0, simple types are not dependent
+
+var obj = 9;
+var objnew = obj;
+delete obj; // objnew will be undefined, as they are linked
+
+
+var obj = {
+    inside: {
+        name: "foo",
+    }
+};
+
+var in1 = obj.inside
+in1.age = 90
+
+console.log(obj.inside);
+console.log(obj);
+
+
+typeof // operator
+typeof obj;
+typeof (obj);
+
+// JS Operators
+// Binary
+// Arithmetical: - (only with numbers); /; *; if used not to numbers, will return NaN (not a number); check with isNaN;
+// .log + Tab = console
+// + operator is for numbers AND to join strings; strings concatenation;
+// JS makes one operation a time with two operands;
+// With сложные типы данных operators will transform the object into a string;
+// % = деление с остатком; 5 % 2 will return 1, 20 % 11 will return 9; 20 % 10 will return 0; to check whether numbers are делимые друг на друга;
+// useful to create pagination (e.g. you have many search results and divide them into pages);
+
+var first = 90;
+var second = 11;
+console.log(first % second * 3);
+
+//Unary
+// + and - transform anything to a number;
+var t = "50";
+var g = '40';
+console.log(+t - +g);
+console.log(+t - -g);
+
+// ++ (increment) and -- (decrement) transform into a number and increase or decrease by 1;
+var m = 90;
+console.log(t++);
+var a = 40;
+console.log(a--);
+
+var u = 8;
+var number = ++t; // 1
+var numnew = t++; // 0, as JS is from left to right, and it will first do numnew = t, and then t++
+
+// Comparison operators >=; <=; <; >; != (NOT equal) return true of false for numbers;
+// strings will be first tried to turn to number, then if not, compared symbol by symbol according to ASCII table (symbols earlier in the table will be more than later in the table);
+"A" > "a"; // false
+"A" < "a"; // true
+"aA" < "ab"; // true
+"aA" < "a"; // false (a=a)
+"aA" < "b"; // true
+
+//Equality operators: == (equal) or === (identical)
+// == compares значение;
+// === compares значение and type;
+// !== compares значение and type;
+// will try to transform them into numbers;
+
+90 == "90"; // true
+90 === "90"; // false
+
+null >= 0; // true (null is transformed into 0, but not equal to 0)
+null == 0; //false
+null == undefined; //true
+null === undefined; //true
+null > 0; //false
+
+// NaN == Nan; //false
+
+var foo = 50;
+var next = foo++;
+console.log(foo === next);
+
+var obj = {age: 90};
+var objnew = {age: 90};
+obj === objnew; // false, as they are links to different memory cells, different objects
+obj.age === objnew.age; // true
+
+// Types Transform (see table in the presentation)
+
+prompt("Enter value");
+var w = prompt("Enter value");
+console.log(+w % 2 == 0);
+if (w % 2 == 0) console.log('Even');
+else console.log('Odd');
+
+// Logical Operators
+// && - and; || - or; ! - not;
+// && is for instructions on condition; if all parts are true;
+
+var r = +prompt("Enter value");
+var number = !isNaN(r) && 90;
+var isValid = r >= 18 && r < 90;
+
+// or - || searches the first true or gives the last значение;
+var b = false;
+var y = true;
+var numodd = r || y || 90;
+
+// not - !
+var r = true;
+var f = !r;
