@@ -1,0 +1,17 @@
+//Task 1
+function getName() {
+    var name = prompt("Enter your name!");
+    return this.name = name;
+};
+var obj = {};
+getName(obj);
+getName();
+
+//Task 2
+function sumTo(n) {
+    var result = 0;
+    for (var i = 1; i <= n; i++) {
+        result += i;
+    };
+    return result;
+};
