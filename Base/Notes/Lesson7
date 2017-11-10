@@ -1,0 +1,79 @@
+// function secondclick() {
+//     alert("You clicked on me!");
+// }
+//
+// var button = document.getElementById("clickFirst");
+// button.addEventListener("click", function() {
+//     alert("You clicked!");
+//     button2.removeEventListener("click", secondclick);
+// });
+//
+// var button2 = document.getElementById("clickSecond");
+// button2.addEventListener("click", secondclick);
+
+//если неисколько обработчиков событий - они добавляются в стек по очереди и так же и выполняются (first in, first out)
+//в каждую фукнцию-обработчик события передаётся объект event, и если вывести его в консоль, тогда нам выведется куча инфы про ивент (тип, таргет etc)
+//доступ к элементу через this (внутри обработчика событий this ссылается на объект события = eventTarget, eventCurrentTarget)
+
+// var h2 = document.querySelector("h2");
+//
+// h2.addEventListener("click", function(){
+//     console.log(this);
+//     this.innerHTML = "This is my new text";
+// });
+
+//события объекта window, на которые мы можем подписаться
+//onblur/onfocus
+//onload, onresize, onscroll (когда скроллим), onunload (когда пользователь уходит со страницы или закрывает окно), onbeforeunload (приостановить процесс, если хочет уйти или закрыть окно)
+
+// window.addEventListener("resize", function(){
+//     console.log(this.width);
+// });
+
+//Загрузка документа: DOMContentLoaded (загружено дерево) => load (загружены скрипты и ресурсы) => beforeunload/unload (до ухода и уход)
+
+//события мыши
+//onclick, oncontextmenu, ondblclick (но вызывается и клик тоже, надо учитывать это при обработке событий), onmouseenter, onmouseleave,
+//onmousemove, onmouseover, onmouseout
+
+//события клавиатуры
+//onkeydown (в процессе нажатия на кнопку), onkeypress, onkeyup (выдаёт по запросу ещё char code, code, key)
+
+// var text = document.getElementById("text");
+// text.addEventListener("keypress", function() {
+//     console.log(event.key);
+//     // if (isNaN(event.key)) {
+//     //     event.preventDefault();
+//     // };
+//
+//     //OR
+//     if (event.charCode <= 48 || event.charCode >= 57) {
+//         event.preventDefault();
+//     };
+// });
+
+//события элементов формы
+//onblur, onchange, oninput, onfocus, onselect, onsearch
+
+var text = document.getElementById("text");
+var search = document.getElementById("search");
+var button = document.querySelector("button");
+var select = document.querySelector("select");
+
+button.addEventListener("click", function(){
+    if (text.value !== "" && search.value !== "" && select.value !== "") {
+        alert("You're good to go");
+        console.log("Everything is correct");
+        var a = document.getElementById("text").value + " " + document.getElementById("search").value;
+        console.log(a);
+    } else {
+        alert("Please fill all fields");
+        console.log("Wrong");
+    }
+});
+
+//фазы события - третий параметр, передаваемый в обработчик (true/false) - когда мы хотим поймать события
+//true - при распространении (по дороге вниз), false - при всплытии
+//по умолчанию - false, поэтому событие срабатывает только один раз
+//распостранение события - от уровня документа аж до самого низшего элемента (первая фаза), потом всплытие (от низшего элемента к верху дерева) (фаза захвата)
+//полезно, например, при большом списке, когда мы хотим добавить обработчик не для элементов списка, а для самого списка (ul), и тогда нам надо на распространении
