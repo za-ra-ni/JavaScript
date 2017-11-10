@@ -49,3 +49,42 @@ callMe(1,2,3);
 Доделать, сортировку не учила ещё
 
 //Task 8
+
+//Task 9
+
+//Task 10
+var arr10 = ['1', '2', '3', '4', '5', '6'];
+var a;
+var z;
+var arr10new = [];
+for (a = 0, z = arr10.length-1; a < arr10.length / 2, z >= arr10.length / 2; a++, z--){
+    var newElement = `${arr10[a]}${arr10[z]}`;
+    arr10new.push(newElement);
+}
+var arr10str = arr10new.join("-");
+console.log(arr10str);
+
+//Task 11
+var arr11_1 = [1,2,3];
+var arr11_2 = [4,5,6, 7, 8];
+var length;
+var arr11new = [];
+arr11_1.length < arr11_2.length ? length = arr11_1.length : length = arr11_2.length;
+for (i = 0; i < length; i++) {
+    arr11new.push(arr11_1[i] + arr11_2[i]);
+}
+console.log(arr11new);
+
+//Task 12
+var arr12 = [1,2,3,4,3,3];
+function deleteFromArray(arr, x) {
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] == x) {
+            arr.splice(i, 1);
+            i--;
+        };
+    };
+    return arr;
+};
+
+//Task 13
