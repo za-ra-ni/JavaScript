@@ -1,0 +1,64 @@
+//event.stopPropagation() - прекращение всплытия
+//event.stopImmediatePropagation() - прекращение всплытия и отмена выполнения всех дальнейших обработчиков события этого же элемента
+
+//event.target - на чём событие произошло, e.currentTarget, this - на что добавили событие
+
+var list = document.querySelector("ul");
+list.addEventListener("click", function(e){
+        if (e.target.nodeName == "SPAN") {
+            e.target.parentNode.remove();
+            e.stopPropagation();
+        };
+}, false);
+
+var button = document.querySelector("button");
+button.addEventListener("click", function (e){
+        var listItem = document.querySelector("li");
+        list.appendChild(listItem.cloneNode(true));
+});
+
+
+//Объектная модель браузера (BOM)
+//читай презентацию, там детальнее
+
+//Потоки в ДжС + Асинхронное программирование (см. презентацию)
+//ДжС - однопоточный, но есть несколько сущностей, происходящих в другом потоке
+
+//Асинхронное программирование - код выполнится, но либо через какое-то время, либо в определённый момент
+//все обработчики событий - асинхронные, в том же самом потоке, но асинхронно
+//таймеры - одна глобальная функция setTimout() - два аргумента: функция к выполнению и задержка (через которую функция выполнится) - в милисекундах
+
+// setTimeout(function(){
+//     alert("Hi");
+// }, 2000)
+
+//можно сохранять в переменную, чтобы потом его удалять
+var timer = setTimeout(function(){
+    alert("Hi");
+}, 20000);
+clearTimeout(timer); //удалить таймер и его событие
+
+// setTimeout(function(){
+//     alert(document.querySelector("Input").value);
+//     console.log(document.querySelector("Input").value);
+// }, 3000);
+
+//setInterval - запускать постоянно через определённый промежуток времени (каждые 10 секунд)
+//clearInterval - тоже если сначала интервал сохранили в переменную (можно после определённого количества повторений, например, через счётчик)
+//интервал мешает выполнению таймаута, к примеру (поскольку в одном потоке)
+
+var h1 = document.querySelector("h1");
+var count = 0;
+var interval = setInterval(function(){
+    h1.innerText = count;
+    count++;
+    if (count >= 10) {
+        h1.innerText = "Your time is off!"
+        clearInterval(interval);
+        return;
+    };
+}, 1000)
+
+//setInterval и setTimeout становятся в поток, в конец очереди выполнения, они выполнятся в самом конце
+//вызов окон типа alert, prompt замораживает весь поток (в это время джс отрабатывает поток, и повторно добавляет и удаляет таймауты и интервалы, они ждут своей очереди)
+
