@@ -1,0 +1,88 @@
+//promise
+//способ организации асинхронного кода
+//promise - pending -> fulfilled / rejected
+//
+var x = 5;
+var promise = new Promise(function(resolve, reject){
+    if (x % 2 == 0) {
+        resolve();
+    } else {
+        reject();
+    }
+});
+
+promise.then( //шта это???
+    function(){
+        console.log("even")
+    },
+    function(){
+        console.log("odd")
+    }
+);
+
+promise.catch() //при неудачном выполнении
+//можно вызывать цепочку промисов и выполнять ряд действий последовательно
+//promise
+//.then
+//.then
+//.then
+
+var promise2 = new Promise(function(resolve, reject){
+        var y = prompt("y");
+        if (typeof y == "NaN") {
+            reject();
+        } else {
+            resolve(y);
+        }
+});
+promise2
+.catch(
+        function(number){
+            console.log(number + "is not a number")
+        }
+    )
+.then(
+    function(number){
+        return number *= 2;
+    }
+)
+.then(
+    function(number){
+        return number *= 3;
+    }
+)
+.then(
+    function(number){
+        console.log(number)
+    }
+);
+
+var z = 50;
+var promiseResolved = Promise.resolve(z);
+
+
+//OOP in JavaScript
+//есть куча стилей написания кода, например, функциональный - когда мы пишем кучу функций
+//весь ДжС - это объекты, поэтому ООП акутально
+//ООП - парадигма, мы пишем код по определённым правилам
+//ООП - принципы - наследование, полиморфизм и инкапсуляция
+
+//инкапсуляция - это наши scopes, или области видимости - для защиты данных и невидимости и недоступности их извне
+//переменная и функция внутри функции - это замыкание
+//переменная в функции - приватная
+
+//полиморфизм - различные классы могут объявить один и тот же метож или свойство (вызываем одну функцию, применяем к разным скоупам)
+var obj = {outerWidth: "pliers"};
+function getWidth(){
+    return this.outerWidth;
+};
+var a = getWidth.call(obj);
+var b = getWidth.call(window);
+console.log(a);
+console.log(b);
+//.call - вызвать функцию в контексте объекта
+
+//наследование - (самая странная часть, почитай) - класс может наследовать все свойства родителя плюс иметь свои
+
+//в функцию мы можем добавлять методы-функции (через точку, а потом функция)
+
